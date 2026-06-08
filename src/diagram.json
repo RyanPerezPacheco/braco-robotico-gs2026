@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "FIAP - Global Solution 2026",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 200,
+      "left": 200,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 20,
+      "left": 80,
+      "attrs": { "horn": "single" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": 20,
+      "left": 300,
+      "attrs": { "horn": "single" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 150,
+      "left": 530,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 200,
+      "left": 530,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["uno:9",   "servo1:PWM", "orange", []],
+    ["uno:GND.1", "servo1:GND", "black", []],
+    ["uno:5V",  "servo1:V+",  "red",   []],
+
+    ["uno:10",  "servo2:PWM", "orange", []],
+    ["uno:GND.2", "servo2:GND", "black", []],
+    ["uno:5V",  "servo2:V+",  "red",   []],
+
+    ["uno:13",  "led1:A",  "green", []],
+    ["led1:K",  "r1:1",    "green", []],
+    ["r1:2",    "uno:GND.3", "black", []]
+  ],
+  "dependencies": {}
+}
